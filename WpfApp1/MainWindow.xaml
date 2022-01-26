@@ -1,0 +1,101 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Ronen's First WPF" Height="440" Width="400"
+        Loaded="Window_Loaded">
+    <!-- the line above is for using a method after all is loaded -->
+
+
+    <!-- this is a comment -->
+    <Border Padding="10" Background="AliceBlue">
+        <StackPanel Background="White">
+
+            <!-- Top buttons -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="ButtonApply" Content="Apply" Background="Green" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Center" Width="80" Grid.Column="0" Click="ButtonApply_Click"/>
+                <Button Content="No touchy" Background="LightBlue" HorizontalAlignment="Center" Margin="0 0 0 10" VerticalAlignment="Center" Width="80" Grid.Column="1"/>
+                <Button x:Name="ButtonResetCheckboxes"  Content="Reset checkboxes" Background="LightCoral" HorizontalAlignment="Center" Margin="0 0 0 10" VerticalAlignment="Center" Width="160" Grid.Column="2" Click="ButtonResetCheckboxes_Click"/>
+            </Grid>
+
+            <!-- Description -->
+            <TextBlock Text="This is a text block"/>
+            <TextBlock Text="This is a bold text block" FontWeight="Bold" Margin="10 10 0 10"/>
+            <Label Content="Description label: enter text and click the Apply button"/>
+            <TextBox TextChanged="TextboxDescription_TextChanged" x:Name="textboxDescription" Padding="2"/>
+
+            <!-- Middle textboxes -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- read only -->
+                <StackPanel Grid.Column="0" Margin="0 0 20 0">
+                    <Label Content="TextBox is readonly" Padding="5 3 0 0"/>
+                    <TextBox x:Name="textboxRead" IsReadOnly="True" Background="LightGray"/>
+                </StackPanel>
+
+                <!-- disabled textbox -->
+                <StackPanel Grid.Column="1">
+                    <Label Content="TextBox is not enabled" Padding="5 3 0 0"/>
+                    <TextBox x:Name="textboxDisabled" IsEnabled="false" Background="LightGray"/>
+                </StackPanel>
+            </Grid>
+
+            <!-- our first dropdown-->
+            <Label Content="Label for the below dropdown AKA comboBox"/>
+            <ComboBox SelectionChanged="ComboBox_SelectionChanged" SelectedIndex="0" Padding="2" Margin="0,2,2,0" x:Name="myDropdown" >
+                <ComboBoxItem>chuku</ComboBoxItem>
+                <ComboBoxItem>muku</ComboBoxItem>
+                <ComboBoxItem>koko</ComboBoxItem>
+                <ComboBoxItem>loko</ComboBoxItem>
+            </ComboBox>
+
+            <Label Content="Label, and below are 10 checkboxes" Margin="0 10 0 0"/>
+
+            <!-- checkBoxes -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Column 1 -->
+                <StackPanel Grid.Column="0" Margin="5 0 0 0">
+                    <CheckBox Checked="Checkbox_Checked" Content="one" x:Name="checkbox01"/>
+                    <!-- also: <CheckBox IsChecked="True"/> -->
+                    <CheckBox Checked="Checkbox_Checked" Content="two" x:Name="checkbox02" />
+                    <CheckBox Checked="Checkbox_Checked" Content="three" x:Name="checkbox03"/>
+                    <CheckBox Checked="Checkbox_Checked" Content="four" x:Name="checkbox04" />
+                    <CheckBox Checked="Checkbox_Checked" Content="five" x:Name="checkbox05" />
+                </StackPanel>
+
+                <!-- Column 2 -->
+                <StackPanel Grid.Column="1" Margin="5 0 0 0">
+                    <CheckBox Checked="Checkbox_Checked" Content="six"  x:Name="checkbox06" />
+                    <CheckBox Checked="Checkbox_Checked" Content="seven" x:Name="checkbox07"/>
+                    <CheckBox Checked="Checkbox_Checked" Content="eight" x:Name="checkbox08"/>
+                    <CheckBox Checked="Checkbox_Checked" Content="nine" x:Name="checkbox09" />
+                    <CheckBox Checked="Checkbox_Checked" Content="ten" x:Name="checkbox10" />
+                </StackPanel>
+            </Grid>
+
+            <!-- output textbox-->
+            <Label Content="Output:" Margin=" 0 10 0 0 "/>
+            <TextBox x:Name="textboxOutput" Padding="2" Margin="0 0 0 0"/>
+
+
+        </StackPanel>
+    </Border>
+</Window>
